@@ -229,7 +229,9 @@
       }                                                                       \
   }
 #define LOG_TRACE_TF(var, len) LOG_TF (TRACE, var, len)
-#define LOG_INSANE_TF(var, len) LOG_TF (INSANE, var, len)
+//#define LOG_INSANE_TF(var, len) LOG_TF (INSANE, var, len)
+#define LOG_INSANE_TF(var, len) 
+
 
 #define FIELD_VEC_TRACE_N(nam, type, vcount, value, dxf)                      \
   if (DWG_LOGLEVEL >= DWG_LOGLEVEL_TRACE)                                     \

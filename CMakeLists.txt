@@ -1,5 +1,12 @@
-cmake_minimum_required(VERSION 2.8...3.27)
+cmake_minimum_required(VERSION 3.27)
 project(libredwg C)
+enable_language(CXX)
+
+find_package(cifuzz NO_SYSTEM_ENVIRONMENT_PATH)
+enable_fuzz_testing()
+
+add_compile_options(-O0)
+
 # Supported options -DLIBREDWG_LIBONLY=On
 #                   -DLIBREDWG_DISABLE_WRITE=On
 #                   -DLIBREDWG_DISABLE_JSON=On
@@ -272,6 +279,9 @@ add_library(${redwg}
     ${libredwg_HEADERS}
     ${libredwg_SOURCES})
 
+
+target_compile_options(${redwg} PRIVATE -Wno-cast-align)
+
 set_property(TARGET ${redwg} PROPERTY C_STANDARD 99)
 set_property(TARGET ${redwg} PROPERTY C_STANDARD_REQUIRED ON)
 
@@ -424,3 +434,4 @@ if(WIN32)
                 README doc/LibreDWG.pdf
     DEPENDS ${redwg})
 endif()
+add_subdirectory(cifuzz-spark)

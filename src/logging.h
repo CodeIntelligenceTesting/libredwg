@@ -65,9 +65,9 @@
   {                                                                           \
     if (DWG_LOGLEVEL >= DWG_LOGLEVEL_ERROR)                                   \
       {                                                                       \
-        HANDLER (OUTPUT, "ERROR: ");                                          \
-        LOG (ERROR, __VA_ARGS__)                                              \
-        HANDLER (OUTPUT, "\n");                                               \
+        /*HANDLER (OUTPUT, "ERROR: ");*/                                          \
+        /*LOG (ERROR, __VA_ARGS__)*/                                              \
+        /*HANDLER (OUTPUT, "\n");*/                                               \
       }                                                                       \
   }
 #define LOG_WARN(...)                                                         \

@@ -50,7 +50,7 @@
 /* The logging level for the read (decode) path.
  * Yes, this library is not thread-safe.
  */
-static unsigned int loglevel;
+static unsigned int loglevel = 255;
 /* the current version per spec block */
 static int cur_ver = 0;
 static BITCODE_BL rcount1 = 0, rcount2 = 0;
@@ -68,7 +68,8 @@ static unsigned int errors = 0;
    LIBREDWG_TRACE and set `loglevel' appropriately.  */
 static bool env_var_checked_p;
 #endif /* USE_TRACING */
-#define DWG_LOGLEVEL loglevel
+#define DWG_LOGLEVEL 0
+
 
 #include "logging.h"
 #include "dec_macros.h"
