@@ -435,3 +435,9 @@ if(WIN32)
     DEPENDS ${redwg})
 endif()
 add_subdirectory(cifuzz-spark)
+
+add_executable(dwg_read_file_oom_reproducer "dwg_read_file_oom_reproducer.cpp")
+target_compile_options(dwg_read_file_oom_reproducer PRIVATE -fsanitize=address)
+target_link_libraries(dwg_read_file_oom_reproducer PRIVATE -fsanitize=address)
+target_link_libraries(dwg_read_file_oom_reproducer PRIVATE redwg)
+
